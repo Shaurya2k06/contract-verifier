@@ -1,6 +1,6 @@
 {
   "name": "contract-verifier",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Node.js CLI tool to automate smart contract verification on block explorers like Etherscan and Polygonscan",
   "main": "src/index.js",
   "bin": {
