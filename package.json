@@ -1,0 +1,26 @@
+{
+  "name": "contract-verifier",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shaurya2k06/contract-verifier.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Shaurya2k06/contract-verifier/issues"
+  },
+  "homepage": "https://github.com/Shaurya2k06/contract-verifier#readme",
+  "dependencies": {
+    "axios": "^1.10.0",
+    "commander": "^14.0.0",
+    "dotenv": "^17.2.0"
+  }
+}
