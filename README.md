@@ -20,7 +20,9 @@ Smart contract developers often have to manually verify their deployed contracts
 ## Usage
 
 ### Install
+```
 npm install -g contract-verifier
+```
 
 #### Setup
 contract-verifier setup
