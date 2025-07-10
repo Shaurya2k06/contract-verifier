@@ -1,5 +1,5 @@
 {
-  "name": "contract-verifier",
+  "name": "@shaurya2k06/contract-verifier",
   "version": "1.0.1",
   "description": "A Node.js CLI tool to automate smart contract verification on block explorers like Etherscan and Polygonscan",
   "main": "src/index.js",
@@ -61,6 +61,6 @@
   ],
   "preferGlobal": true,
   "publishConfig": {
-    "access": "public"
+    "registry": "https://npm.pkg.github.com"
   }
 }
