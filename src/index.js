@@ -59,27 +59,27 @@ class ContractVerifier {
     } = options;
 
     try {
-      // Validate network
+      
       if (!this.networks[network]) {
         throw new Error(`Unsupported network: ${network}. Supported networks: ${Object.keys(this.networks).join(', ')}`);
       }
 
       const networkConfig = this.networks[network];
       
-      // Check API key
+      
       if (!networkConfig.apiKey) {
         throw new Error(`API key not found for ${networkConfig.name}. Please set ${network.toUpperCase()}_API_KEY in your .env file`);
       }
 
-      // Validate contract address
+      
       if (!this.isValidAddress(address)) {
         throw new Error(`Invalid contract address: ${address}`);
       }
 
-      // Read source code
+      
       const sourceCode = await this.readSourceCode(sourcePath);
       
-      // Prepare verification request
+      
       const verificationData = {
         module: 'contract',
         action: 'verifysourcecode',
@@ -100,14 +100,14 @@ class ContractVerifier {
       console.log(`🔧 Compiler Version: ${compilerVersion}`);
       console.log(`⚙️  Optimization: ${optimized ? 'Enabled' : 'Disabled'} ${optimized ? `(${runs} runs)` : ''}`);
       
-      // Submit verification
+      
       const response = await this.submitVerification(network, verificationData);
       
       if (response.status === '1') {
         console.log(`✅ Verification submitted successfully!`);
         console.log(`📄 GUID: ${response.result}`);
         
-        // Poll for verification status
+        
         const finalStatus = await this.pollVerificationStatus(network, response.result);
         
         if (finalStatus.success) {
@@ -226,17 +226,17 @@ class ContractVerifier {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-  // Method to get supported networks
+  
   getSupportedNetworks() {
     return Object.keys(this.networks);
   }
 
-  // Method to get network info
+  
   getNetworkInfo(network) {
     return this.networks[network];
   }
 
-  // Method to encode constructor arguments
+  
   encodeConstructorArgs(types, values) {
     if (!types || !values || types.length !== values.length) {
       throw new Error('Types and values arrays must have the same length');
@@ -270,13 +270,13 @@ class ContractVerifier {
     return encoded;
   }
 
-  // Encode uint256 value
+  
   encodeUint256(value) {
     const num = BigInt(value);
     return num.toString(16).padStart(64, '0');
   }
 
-  // Encode address value
+  
   encodeAddress(address) {
     if (!this.isValidAddress(address)) {
       throw new Error(`Invalid address: ${address}`);
@@ -284,7 +284,7 @@ class ContractVerifier {
     return address.slice(2).toLowerCase().padStart(64, '0');
   }
 
-  // Encode string value (simplified)
+  
   encodeString(str) {
     // This is a simplified string encoding - for production use, consider using ethers.js
     const hex = Buffer.from(str, 'utf8').toString('hex');
@@ -344,7 +344,7 @@ class ContractVerifier {
     return /^v\d+\.\d+\.\d+\+commit\.[a-f0-9]+$/.test(version);
   }
 
-  // Get available compiler versions from API
+  
   async getCompilerVersions(network = 'ethereum') {
     const config = this.networks[network];
     
